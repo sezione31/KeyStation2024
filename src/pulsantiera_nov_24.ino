@@ -387,7 +387,7 @@ void loop() {
       lcd.setCursor(0, 0);
       lcd.print(F("Acceso"));
       lcd.setCursor(0, 1);
-      lcd.print(F("NAS da WEB"));
+      lcd.print(F("PC da WEB"));
       ledStato = 1;
       //inviaMagicPacket();
       delay(1000);
@@ -398,7 +398,7 @@ void loop() {
       lcd.setCursor(0, 0);
       lcd.print(F("Spento"));
       lcd.setCursor(0, 1);
-      lcd.print(F("NAS da WEB"));
+      lcd.print(F("PC da WEB"));
       ledStato = 0;
       delay(500);
     }
@@ -406,20 +406,20 @@ void loop() {
       digitalWrite(led2, HIGH);
       lcd.clear();
       lcd.setCursor(0, 0);
-      lcd.print(F("Acceso"));
+      lcd.print(F("Accese"));
       lcd.setCursor(0, 1);
-      lcd.print(F("HD da WEB"));
+      lcd.print(F("CASSE da WEB"));
       ledStato2 = 1;
-      inviaMagicPacket2();
+      // inviaMagicPacket2();
       delay(500);
     }
     if (listener.indexOf("?button0off") > 0) {
       digitalWrite(led2, LOW);
       lcd.clear();
       lcd.setCursor(0, 0);
-      lcd.print(F("Spento"));
+      lcd.print(F("Spente"));
       lcd.setCursor(0, 1);
-      lcd.print(F("HD da WEB"));
+      lcd.print(F("CASSE da WEB"));
       ledStato2 = 0;
       delay(500);
     }
@@ -429,7 +429,7 @@ void loop() {
       lcd.setCursor(0, 0);
       lcd.print(F("Acceso"));
       lcd.setCursor(0, 1);
-      lcd.print(F("MIXER da WEB"));
+      lcd.print(F("YOTTAMASTER da WEB"));
       ledStato3 = 1;
       delay(500);
     }
@@ -439,7 +439,7 @@ void loop() {
       lcd.setCursor(0, 0);
       lcd.print(F("Spento"));
       lcd.setCursor(0, 1);
-      lcd.print(F("MIXER da WEB"));
+      lcd.print(F("YOTTAMASTER da WEB"));
       ledStato3 = 0;
       delay(500);
     }
@@ -447,9 +447,9 @@ void loop() {
       digitalWrite(led4, HIGH);
       lcd.clear();
       lcd.setCursor(0, 0);
-      lcd.print(F("Accese"));
+      lcd.print(F("Acceso"));
       lcd.setCursor(0, 1);
-      lcd.print(F("Casse da WEB"));
+      lcd.print(F("MIXER da WEB"));
       ledStato4 = 1;
       delay(500);
     }
@@ -457,9 +457,9 @@ void loop() {
       digitalWrite(led4, LOW);
       lcd.clear();
       lcd.setCursor(0, 0);
-      lcd.print(F("Spente"));
+      lcd.print(F("Spento"));
       lcd.setCursor(0, 1);
-      lcd.print(F("Casse da WEB"));
+      lcd.print(F("MIXER da WEB"));
       ledStato4 = 0;
       delay(500);
     }
@@ -731,7 +731,7 @@ void SendOKpage(EthernetClient &client) {
   client.println(F("<meta name='apple-mobile-web-app-capable' content='yes' />"));
   client.println(F("<meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />"));
   client.println(F("<link rel='stylesheet' type='text/css' href='http://www.progettiarduino.com/uploads/8/1/0/8/81088074/style3.css' />"));
-  client.println(F("<TITLE>Controllo Dispositivi 2.0</TITLE>"));
+  client.println(F("<TITLE>KEYSTATION 1.1</TITLE>"));
   client.println(F("</HEAD>"));
   client.println(F("<BODY>"));
   client.println(F("<H1>Controllo Dispositivi da Remoto - Sezione31 - 2024</H1>"));
@@ -747,8 +747,8 @@ void SendOKpage(EthernetClient &client) {
   client.println(F("<a href=\"/?button0off\"\">Spegni   CASSE</a><br />"));
   client.println(F("<br />"));
   client.println(F("<br />"));
-  client.println(F("<a href=\"/?button3on\"\">Accendi YOTTA</a>"));
-  client.println(F("<a href=\"/?button3off\"\">Spegni YOTTA</a><br />"));
+  client.println(F("<a href=\"/?button3on\"\">Accendi YOTTAMASTER</a>"));
+  client.println(F("<a href=\"/?button3off\"\">Spegni YOTTAMASTER</a><br />"));
   client.println(F("<br />"));
   client.println(F("<br />"));
   client.println(F("<a href=\"/?button4on\"\">Accendi MIXER</a>"));
