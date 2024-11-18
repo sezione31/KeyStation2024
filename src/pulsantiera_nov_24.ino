@@ -1,6 +1,6 @@
 // Versione 0,9,1 Alberto Corti - 04/07/2024 - git new 18/11/2025
 
-// nuova versione di sviluppo per modifiche github rev1.1 - main mac
+// nuova versione di sviluppo per modifiche github rev1.1 - main
  #include <Arduino.h>
 #include <Ethernet.h>
 //#include <EthernetUDP.h>
