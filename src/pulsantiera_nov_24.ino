@@ -626,11 +626,11 @@ void DS3231_display() {
   lcd.setCursor(0, 1);
   lcd.print(Calendar);  // Scrivi sul display la data
   lcd.setCursor(0, 2);
-  lcd.print(F("Temperatura:"));
+  lcd.print(F("Temperatura: "));
   lcd.print(Temp() - 1.75);
   lcd.print((char)223);
   lcd.setCursor(0, 3);
-  lcd.print(F("KeyStation r1.1 "));
+  lcd.print(F("KeyStation r1.0 "));
   if (ledStato == 0) {
     lcd.setCursor(16, 3);
     lcd.write(byte(0));
@@ -734,36 +734,36 @@ void SendOKpage(EthernetClient &client) {
   client.println(F("<TITLE>KEYSTATION 1.1</TITLE>"));
   client.println(F("</HEAD>"));
   client.println(F("<BODY>"));
-  client.println(F("<H1>Controllo Dispositivi da Remoto - Sezione31 - 2024</H1>"));
+  client.println(F("<H1>KEYSTATION - Sezione31 - 2024</H1>"));
   client.println(F("<hr />"));
   client.println(F("<br />"));
-  client.println("<H2>Pulsantiera Arduino UNO con Ethernet Shield</H2>");
+  client.println("<H2>Pulsantiera Arduino con Ethernet Shield</H2>");
   client.println("<br />");
-  client.println(F("<a href=\"/?button1on\"\">Accendi   PC</a>"));
-  client.println(F("<a href=\"/?button1off\"\">Spegni   PC</a><br />"));
+  client.println(F("<a href=\"/?button1on\"\">PC ON</a>"));
+  client.println(F("<a href=\"/?button1off\"\">PC OFF</a><br />"));
   client.println(F("<br />"));
   client.println(F("<br />"));
-  client.println(F("<a href=\"/?button0on\"\">Accendi   CASSE</a>"));
-  client.println(F("<a href=\"/?button0off\"\">Spegni   CASSE</a><br />"));
+  client.println(F("<a href=\"/?button0on\"\">CASSE ON</a>"));
+  client.println(F("<a href=\"/?button0off\"\">CASSE OFF</a><br />"));
   client.println(F("<br />"));
   client.println(F("<br />"));
-  client.println(F("<a href=\"/?button3on\"\">Accendi YOTTAMASTER</a>"));
-  client.println(F("<a href=\"/?button3off\"\">Spegni YOTTAMASTER</a><br />"));
+  client.println(F("<a href=\"/?button3on\"\">YOTTAMASTER ON</a>"));
+  client.println(F("<a href=\"/?button3off\"\">YOTTAMASTER OFF</a><br />"));
   client.println(F("<br />"));
   client.println(F("<br />"));
-  client.println(F("<a href=\"/?button4on\"\">Accendi MIXER</a>"));
-  client.println(F("<a href=\"/?button4off\"\">Spegni MIXER</a><br />"));
+  client.println(F("<a href=\"/?button4on\"\">MIXER ON</a>"));
+  client.println(F("<a href=\"/?button4off\"\">MIXER OFF</a><br />"));
   client.println(F("<br />"));
   client.println(F("<br />"));
-  client.println(F("<a href=\"/?buttonallon\"\">Accendi TUTTO</a>"));
-  client.println(F("<a href=\"/?buttonalloff\"\">Spegni TUTTO</a><br />"));
+  client.println(F("<a href=\"/?buttonallon\"\">TUTTO ON</a>"));
+  client.println(F("<a href=\"/?buttonalloff\"\">TUTTO OFF</a><br />"));
   client.println(F("<br />"));
   client.println(F("<br />"));
-  client.println(F("<a href=\"/?lcdon\"\">Accendi lcd</a>"));
-  client.println(F("<a href=\"/?lcdoff\"\">Spegni lcd</a>"));
+  client.println(F("<a href=\"/?lcdon\"\">LCD ON</a>"));
+  client.println(F("<a href=\"/?lcdoff\"\">LCD OFF</a>"));
   client.println(F("<br />"));
   client.println(F("<br />"));
-  client.println(F("<p>Creato da Sezione31 - Alberto Corti</p>"));
+  client.println(F("<H2>Creato da Sezione31 - Alberto Corti</H2>"));
   client.println(F("<br />"));
   client.println(F("</BODY>"));
   client.println(F("</HTML>"));
@@ -780,7 +780,7 @@ void SendAuthentificationpage(EthernetClient &client) {
   client.println(" </HEAD> <BODY><H1>401 Unauthorized.</H1></BODY> </HTML>");
 }
 
-void Receive_Serial_Data()
+/* void Receive_Serial_Data()
 {
 char cs = Serial.read();
   while (Serial.available() > 0) {
@@ -797,4 +797,4 @@ char cs = Serial.read();
     dataIn = "";
     Serial.println((String) "Temperatura = " + temp);
   }
-}
+} */
