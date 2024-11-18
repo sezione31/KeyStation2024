@@ -1,7 +1,7 @@
 // Versione 0,9,1 Alberto Corti - 04/07/2024 - git new 2025
 
 // nuova versione di sviluppo per modifiche github rev1.1 - main mac
-#include <Arduino.h>
+ #include <Arduino.h>
 #include <Ethernet.h>
 //#include <EthernetUDP.h>
 #include <Wire.h>
@@ -264,12 +264,12 @@ void loop() {
       if (ledStato == 0) {
         lcd.clear();
         lcd.setCursor(0, 0);
-        lcd.print(F("NAS OFF"));
+        lcd.print(F("PC OFF"));
       } else if (ledStato == 1) {
         //inviaMagicPacket();
         lcd.clear();
         lcd.setCursor(0, 0);
-        lcd.print(F("NAS ON"));
+        lcd.print(F("PC ON"));
       }
       delay(500);  // Invio magic packet, in questo caso al NAS
     }
@@ -283,12 +283,12 @@ void loop() {
       if (ledStato2 == 0) {
         lcd.clear();
         lcd.setCursor(0, 0);
-        lcd.print(F("HARD DISK OFF"));
+        lcd.print(F("CASSE OFF"));
       } else if (ledStato2 == 1) {
         inviaMagicPacket2();
         lcd.clear();
         lcd.setCursor(0, 0);
-        lcd.print(F("HARD DISK ON"));
+        lcd.print(F("CASSE ON"));
       }
       delay(500);  // Invio magic packet, in questo caso al NAS
       lcd.clear();
@@ -303,12 +303,12 @@ void loop() {
       if (ledStato3 == 0) {
         lcd.clear();
         lcd.setCursor(0, 0);
-        lcd.print(F("MIXER OFF"));
+        lcd.print(F("YOTTAMASTER OFF"));
 
       } else if (ledStato3 == 1) {
         lcd.clear();
         lcd.setCursor(0, 0);
-        lcd.print(F("MIXER ON"));
+        lcd.print(F("YOTTAMASTER ON"));
       }
       delay(500);  // Imposto al pin13 lo stato di ledStato
     }
@@ -322,11 +322,11 @@ void loop() {
       if (ledStato4 == 0) {
         lcd.clear();
         lcd.setCursor(0, 0);
-        lcd.print(F("CASSE OFF"));
+        lcd.print(F("MIXER OFF"));
       } else if (ledStato4 == 1) {
         lcd.clear();
         lcd.setCursor(0, 0);
-        lcd.print(F("CASSE ON"));
+        lcd.print(F("MIXER ON"));
       }
       delay(500);
     }
