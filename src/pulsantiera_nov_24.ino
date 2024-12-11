@@ -18,7 +18,6 @@ byte led1 = 2;  //relay1
 byte led2 = 3;  //relay2
 byte led3 = 5;  //relay3
 byte led4 = 6;  //relaygit log4
-
 byte led5 = 4;
 byte led6 = 7;
 byte pulsantePin = 14;  //pulsante1
@@ -590,7 +589,7 @@ void pulsantieraOn(int ritardo) {
   lcd.print(Temp() - 1.75);
   lcd.print((char)223);
   lcd.setCursor(0, 3);
-  lcd.print(F("*PULSANTIERA WEB2.1*"));
+  lcd.print(F("*PULSANTIERA WEB2024"));
   delay(ritardo);
 }
 void DS3231_display() {
@@ -630,7 +629,7 @@ void DS3231_display() {
   lcd.print(Temp() - 1.75);
   lcd.print((char)223);
   lcd.setCursor(0, 3);
-  lcd.print(F("KeyStation r1.1 "));
+  lcd.print(F("KeyStation r1.0 "));
   if (ledStato == 0) {
     lcd.setCursor(16, 3);
     lcd.write(byte(0));
