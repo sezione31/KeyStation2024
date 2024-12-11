@@ -589,7 +589,7 @@ void pulsantieraOn(int ritardo) {
   lcd.print(Temp() - 1.75);
   lcd.print((char)223);
   lcd.setCursor(0, 3);
-  lcd.print(F("*PULSANTIERA WEB2024"));
+  lcd.print(F("*KEYSTATION WEB 2024"));
   delay(ritardo);
 }
 void DS3231_display() {
