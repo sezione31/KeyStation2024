@@ -16,8 +16,8 @@ byte stato = LOW;
 LiquidCrystal_I2C lcd(0x27, 20, 4);
 byte led1 = 2;  //relay1
 byte led2 = 3;  //relay2
-byte led3 = 6;  //relay3
-byte led4 = 5;  //relaygit log4
+byte led3 = 5;  //relay3
+byte led4 = 6;  //relaygit log4
 byte led5 = 4;
 byte led6 = 7;
 byte pulsantePin = 14;  //pulsante1
@@ -589,7 +589,7 @@ void pulsantieraOn(int ritardo) {
   lcd.print(Temp() - 1.75);
   lcd.print((char)223);
   lcd.setCursor(0, 3);
-  lcd.print(F("*KEYSTATION WEB 2024"));
+  lcd.print(F("*PULSANTIERA WEB2.1*"));
   delay(ritardo);
 }
 void DS3231_display() {
