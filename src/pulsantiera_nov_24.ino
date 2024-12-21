@@ -1,6 +1,6 @@
-// Versione 0,9,1 Alberto Corti - 04/07/2024 - git new 2025
+// Versione 0,9,1 Alberto Corti - 04/07/2024 - git new 18/11/2025
 
-// nuova versione di sviluppo per modifiche github rev1.0
+// nuova versione di sviluppo per modifiche github rev1 - restart
 #include <Arduino.h>
 #include <Ethernet.h>
 //#include <EthernetUDP.h>
@@ -16,15 +16,14 @@ byte stato = LOW;
 LiquidCrystal_I2C lcd(0x27, 20, 4);
 byte led1 = 2;  //relay1
 byte led2 = 3;  //relay2
-byte led3 = 5;  //relay3
-byte led4 = 6;  //relaygit log4
-
+byte led3 = 6;  //relay3
+byte led4 = 5;  //relaygit log4
 byte led5 = 4;
 byte led6 = 7;
 byte pulsantePin = 14;  //pulsante1
 byte pulsantePin2 = 15;
-byte pulsantePin3 = 16;
-byte pulsantePin4 = 17;
+byte pulsantePin3 = 17; // invertiti i tasti per la nuova basetta
+byte pulsantePin4 = 16;
 byte ledStato = LOW;
 byte ledStato2 = LOW;
 byte ledStato3 = LOW;
@@ -264,12 +263,12 @@ void loop() {
       if (ledStato == 0) {
         lcd.clear();
         lcd.setCursor(0, 0);
-        lcd.print(F("NAS OFF"));
+        lcd.print(F("PC OFF"));
       } else if (ledStato == 1) {
         //inviaMagicPacket();
         lcd.clear();
         lcd.setCursor(0, 0);
-        lcd.print(F("NAS ON"));
+        lcd.print(F("PC ON"));
       }
       delay(500);  // Invio magic packet, in questo caso al NAS
     }
@@ -283,12 +282,12 @@ void loop() {
       if (ledStato2 == 0) {
         lcd.clear();
         lcd.setCursor(0, 0);
-        lcd.print(F("HARD DISK OFF"));
+        lcd.print(F("CASSE OFF"));
       } else if (ledStato2 == 1) {
         inviaMagicPacket2();
         lcd.clear();
         lcd.setCursor(0, 0);
-        lcd.print(F("HARD DISK ON"));
+        lcd.print(F("CASSE ON"));
       }
       delay(500);  // Invio magic packet, in questo caso al NAS
       lcd.clear();
@@ -303,12 +302,12 @@ void loop() {
       if (ledStato3 == 0) {
         lcd.clear();
         lcd.setCursor(0, 0);
-        lcd.print(F("MIXER OFF"));
+        lcd.print(F("YOTTAMASTER OFF"));
 
       } else if (ledStato3 == 1) {
         lcd.clear();
         lcd.setCursor(0, 0);
-        lcd.print(F("MIXER ON"));
+        lcd.print(F("YOTTAMASTER ON"));
       }
       delay(500);  // Imposto al pin13 lo stato di ledStato
     }
@@ -322,11 +321,11 @@ void loop() {
       if (ledStato4 == 0) {
         lcd.clear();
         lcd.setCursor(0, 0);
-        lcd.print(F("CASSE OFF"));
+        lcd.print(F("MIXER OFF"));
       } else if (ledStato4 == 1) {
         lcd.clear();
         lcd.setCursor(0, 0);
-        lcd.print(F("CASSE ON"));
+        lcd.print(F("MIXER ON"));
       }
       delay(500);
     }
@@ -387,7 +386,7 @@ void loop() {
       lcd.setCursor(0, 0);
       lcd.print(F("Acceso"));
       lcd.setCursor(0, 1);
-      lcd.print(F("NAS da WEB"));
+      lcd.print(F("PC da WEB"));
       ledStato = 1;
       //inviaMagicPacket();
       delay(1000);
@@ -398,7 +397,7 @@ void loop() {
       lcd.setCursor(0, 0);
       lcd.print(F("Spento"));
       lcd.setCursor(0, 1);
-      lcd.print(F("NAS da WEB"));
+      lcd.print(F("PC da WEB"));
       ledStato = 0;
       delay(500);
     }
@@ -406,20 +405,20 @@ void loop() {
       digitalWrite(led2, HIGH);
       lcd.clear();
       lcd.setCursor(0, 0);
-      lcd.print(F("Acceso"));
+      lcd.print(F("Accese"));
       lcd.setCursor(0, 1);
-      lcd.print(F("HD da WEB"));
+      lcd.print(F("CASSE da WEB"));
       ledStato2 = 1;
-      inviaMagicPacket2();
+      // inviaMagicPacket2();
       delay(500);
     }
     if (listener.indexOf("?button0off") > 0) {
       digitalWrite(led2, LOW);
       lcd.clear();
       lcd.setCursor(0, 0);
-      lcd.print(F("Spento"));
+      lcd.print(F("Spente"));
       lcd.setCursor(0, 1);
-      lcd.print(F("HD da WEB"));
+      lcd.print(F("CASSE da WEB"));
       ledStato2 = 0;
       delay(500);
     }
@@ -429,7 +428,7 @@ void loop() {
       lcd.setCursor(0, 0);
       lcd.print(F("Acceso"));
       lcd.setCursor(0, 1);
-      lcd.print(F("MIXER da WEB"));
+      lcd.print(F("YOTTAMASTER da WEB"));
       ledStato3 = 1;
       delay(500);
     }
@@ -439,7 +438,7 @@ void loop() {
       lcd.setCursor(0, 0);
       lcd.print(F("Spento"));
       lcd.setCursor(0, 1);
-      lcd.print(F("MIXER da WEB"));
+      lcd.print(F("YOTTAMASTER da WEB"));
       ledStato3 = 0;
       delay(500);
     }
@@ -447,9 +446,9 @@ void loop() {
       digitalWrite(led4, HIGH);
       lcd.clear();
       lcd.setCursor(0, 0);
-      lcd.print(F("Accese"));
+      lcd.print(F("Acceso"));
       lcd.setCursor(0, 1);
-      lcd.print(F("Casse da WEB"));
+      lcd.print(F("MIXER da WEB"));
       ledStato4 = 1;
       delay(500);
     }
@@ -457,9 +456,9 @@ void loop() {
       digitalWrite(led4, LOW);
       lcd.clear();
       lcd.setCursor(0, 0);
-      lcd.print(F("Spente"));
+      lcd.print(F("Spento"));
       lcd.setCursor(0, 1);
-      lcd.print(F("Casse da WEB"));
+      lcd.print(F("MIXER da WEB"));
       ledStato4 = 0;
       delay(500);
     }
@@ -590,7 +589,7 @@ void pulsantieraOn(int ritardo) {
   lcd.print(Temp() - 1.75);
   lcd.print((char)223);
   lcd.setCursor(0, 3);
-  lcd.print(F("*PULSANTIERA WEB2.1*"));
+  lcd.print(F("*KEYSTATION WEB 2024"));
   delay(ritardo);
 }
 void DS3231_display() {
@@ -626,11 +625,11 @@ void DS3231_display() {
   lcd.setCursor(0, 1);
   lcd.print(Calendar);  // Scrivi sul display la data
   lcd.setCursor(0, 2);
-  lcd.print(F("Temperatura:"));
+  lcd.print(F("Temperatura: "));
   lcd.print(Temp() - 1.75);
   lcd.print((char)223);
   lcd.setCursor(0, 3);
-  lcd.print(F("KeyStation r1.1 "));
+  lcd.print(F("KeyStation r1.0 "));
   if (ledStato == 0) {
     lcd.setCursor(16, 3);
     lcd.write(byte(0));
@@ -731,39 +730,39 @@ void SendOKpage(EthernetClient &client) {
   client.println(F("<meta name='apple-mobile-web-app-capable' content='yes' />"));
   client.println(F("<meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />"));
   client.println(F("<link rel='stylesheet' type='text/css' href='http://www.progettiarduino.com/uploads/8/1/0/8/81088074/style3.css' />"));
-  client.println(F("<TITLE>Controllo Dispositivi 2.0</TITLE>"));
+  client.println(F("<TITLE>KEYSTATION 1.1</TITLE>"));
   client.println(F("</HEAD>"));
   client.println(F("<BODY>"));
-  client.println(F("<H1>Controllo Dispositivi da Remoto - Sezione31 - 2024</H1>"));
+  client.println(F("<H1>KEYSTATION - Sezione31 - 2024</H1>"));
   client.println(F("<hr />"));
   client.println(F("<br />"));
-  client.println("<H2>Pulsantiera Arduino UNO con Ethernet Shield</H2>");
+  client.println("<H2>Pulsantiera Arduino con Ethernet Shield</H2>");
   client.println("<br />");
-  client.println(F("<a href=\"/?button1on\"\">Accendi   PC</a>"));
-  client.println(F("<a href=\"/?button1off\"\">Spegni   PC</a><br />"));
+  client.println(F("<a href=\"/?button1on\"\">PC ON</a>"));
+  client.println(F("<a href=\"/?button1off\"\">PC OFF</a><br />"));
   client.println(F("<br />"));
   client.println(F("<br />"));
-  client.println(F("<a href=\"/?button0on\"\">Accendi   CASSE</a>"));
-  client.println(F("<a href=\"/?button0off\"\">Spegni   CASSE</a><br />"));
+  client.println(F("<a href=\"/?button0on\"\">CASSE ON</a>"));
+  client.println(F("<a href=\"/?button0off\"\">CASSE OFF</a><br />"));
   client.println(F("<br />"));
   client.println(F("<br />"));
-  client.println(F("<a href=\"/?button3on\"\">Accendi YOTTA</a>"));
-  client.println(F("<a href=\"/?button3off\"\">Spegni YOTTA</a><br />"));
+  client.println(F("<a href=\"/?button3on\"\">YOTTAMASTER ON</a>"));
+  client.println(F("<a href=\"/?button3off\"\">YOTTAMASTER OFF</a><br />"));
   client.println(F("<br />"));
   client.println(F("<br />"));
-  client.println(F("<a href=\"/?button4on\"\">Accendi MIXER</a>"));
-  client.println(F("<a href=\"/?button4off\"\">Spegni MIXER</a><br />"));
+  client.println(F("<a href=\"/?button4on\"\">MIXER ON</a>"));
+  client.println(F("<a href=\"/?button4off\"\">MIXER OFF</a><br />"));
   client.println(F("<br />"));
   client.println(F("<br />"));
-  client.println(F("<a href=\"/?buttonallon\"\">Accendi TUTTO</a>"));
-  client.println(F("<a href=\"/?buttonalloff\"\">Spegni TUTTO</a><br />"));
+  client.println(F("<a href=\"/?buttonallon\"\">TUTTO ON</a>"));
+  client.println(F("<a href=\"/?buttonalloff\"\">TUTTO OFF</a><br />"));
   client.println(F("<br />"));
   client.println(F("<br />"));
-  client.println(F("<a href=\"/?lcdon\"\">Accendi lcd</a>"));
-  client.println(F("<a href=\"/?lcdoff\"\">Spegni lcd</a>"));
+  client.println(F("<a href=\"/?lcdon\"\">LCD ON</a>"));
+  client.println(F("<a href=\"/?lcdoff\"\">LCD OFF</a>"));
   client.println(F("<br />"));
   client.println(F("<br />"));
-  client.println(F("<p>Creato da Sezione31 - Alberto Corti</p>"));
+  client.println(F("<H2>Creato da Sezione31 - Alberto Corti</H2>"));
   client.println(F("<br />"));
   client.println(F("</BODY>"));
   client.println(F("</HTML>"));
@@ -780,7 +779,7 @@ void SendAuthentificationpage(EthernetClient &client) {
   client.println(" </HEAD> <BODY><H1>401 Unauthorized.</H1></BODY> </HTML>");
 }
 
-void Receive_Serial_Data()
+/* void Receive_Serial_Data()
 {
 char cs = Serial.read();
   while (Serial.available() > 0) {
@@ -797,4 +796,4 @@ char cs = Serial.read();
     dataIn = "";
     Serial.println((String) "Temperatura = " + temp);
   }
-}
+} */
