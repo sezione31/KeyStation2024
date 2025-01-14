@@ -33,13 +33,13 @@ byte pulsanteStato2 = LOW;
 byte pulsanteStato3 = LOW;
 byte pulsanteStato4 = LOW;
 byte attesaDebounce = 50;
-byte attesaDebounce2 = 50;
+/* byte attesaDebounce2 = 50;
 byte attesaDebounce3 = 50;
-byte attesaDebounce4 = 50;
+byte attesaDebounce4 = 50; */
 unsigned long ultimoTempoDebounce = 0;
-unsigned long ultimoTempoDebounce2 = 0;
+/* unsigned long ultimoTempoDebounce2 = 0;
 unsigned long ultimoTempoDebounce3 = 0;
-unsigned long ultimoTempoDebounce4 = 0;
+unsigned long ultimoTempoDebounce4 = 0; */
 byte ultimaLettura = LOW;
 byte ultimaLettura2 = LOW;
 byte ultimaLettura3 = LOW;
@@ -251,9 +251,9 @@ void loop() {
   byte lettura3 = digitalRead(pulsantePin3);
   byte lettura4 = digitalRead(pulsantePin4);
   letturaPulsanti(lettura, pulsantePin, ultimaLettura, ultimoTempoDebounce);
-  letturaPulsanti(lettura2, pulsantePin2, ultimaLettura2, ultimoTempoDebounce2);
-  letturaPulsanti(lettura3, pulsantePin3, ultimaLettura3, ultimoTempoDebounce3);
-  letturaPulsanti(lettura4, pulsantePin4, ultimaLettura4, ultimoTempoDebounce4);
+  letturaPulsanti(lettura2, pulsantePin2, ultimaLettura2, ultimoTempoDebounce);
+  letturaPulsanti(lettura3, pulsantePin3, ultimaLettura3, ultimoTempoDebounce);
+  letturaPulsanti(lettura4, pulsantePin4, ultimaLettura4, ultimoTempoDebounce);
   // *********************************************************************************************************************
   if ((millis() - ultimoTempoDebounce) > attesaDebounce) {  // se il conteggio è superiore a 50 millisecondi
     if (lettura != pulsanteStato and lettura == HIGH) {     // se il pin7 è diverso dallo stato del pulsante e il pulsante1 è premuto
@@ -274,7 +274,7 @@ void loop() {
     }
     pulsanteStato = lettura;  // assegno lo stato del pulsante al pin7
   }
-  if ((millis() - ultimoTempoDebounce2) > attesaDebounce2) {  // se il conteggio è superiore a 50 millisecondi
+  if ((millis() - ultimoTempoDebounce) > attesaDebounce) {  // se il conteggio è superiore a 50 millisecondi
     if (lettura2 != pulsanteStato2 and lettura2 == HIGH) {    // se il pin8 è diverso dallo stato del pulsante e il pulsante2 è premuto
       ledStato2 = !ledStato2;                                 // cambio lo stato del pin 13
       digitalWrite(led2, ledStato2);                          // Imposto al pin13 lo stato di ledStato
@@ -295,7 +295,7 @@ void loop() {
     pulsanteStato2 = lettura2;  // assegno lo stato del pulsante al pin7
   }
 
-  if ((millis() - ultimoTempoDebounce3) > attesaDebounce3) {  // se il conteggio è superiore a 50 millisecondi
+  if ((millis() - ultimoTempoDebounce) > attesaDebounce) {  // se il conteggio è superiore a 50 millisecondi
     if (lettura3 != pulsanteStato3 and lettura3 == HIGH) {    // se il pin7 è diverso dallo stato del pulsante e il pulsante3 è premuto
       ledStato3 = !ledStato3;                                 // cambio lo stato del pin 13
       digitalWrite(led3, ledStato3);
@@ -313,7 +313,7 @@ void loop() {
     }
     pulsanteStato3 = lettura3;  // assegno lo stato del pulsante al pin7
   }
-  if ((millis() - ultimoTempoDebounce4) > attesaDebounce4) {  // se il conteggio è superiore a 50 millisecondi
+  if ((millis() - ultimoTempoDebounce) > attesaDebounce) {  // se il conteggio è superiore a 50 millisecondi
     if (lettura4 != pulsanteStato4 and lettura4 == HIGH) {    // se il pin7 è diverso dallo stato del pulsante4 e il pulsante1 è premuto
       ledStato4 = !ledStato4;                                 // cambio lo stato del pin 13
       digitalWrite(led4, ledStato4);
