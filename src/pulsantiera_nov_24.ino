@@ -1,6 +1,6 @@
-// Versione 0,9,1 Alberto Corti - 04/07/2024 - git new 18/11/2025
+// Versione 0,9,1 Alberto Corti - 04/07/2024 - git new 29/01/2025
 
-// nuova versione di sviluppo per modifiche github rev1 - restart
+// nuova versione di sviluppo per modifiche github rev1.1 - restart
 #include <Arduino.h>
 #include <Ethernet.h>
 //#include <EthernetUDP.h>
@@ -135,7 +135,7 @@ void setup() {
   delay(1000);
 }
 //******************************* END SETUP *****************************************************
-char Time[] = "Ora:   :  :  ";
+char Time[] = "Ora:   :  :   ";
 char Calendar[] = "Data:  -  -20   ----";
 byte i, second, minute, hour, date, month, year;
 char linebuf[80];
@@ -589,7 +589,7 @@ void pulsantieraOn(int ritardo) {
   lcd.print(Temp() - 1.75);
   lcd.print((char)223);
   lcd.setCursor(0, 3);
-  lcd.print(F("*PULSANTIERA WEB2.1*"));
+  lcd.print(F("*KEYSTATION WEB 2025"));
   delay(ritardo);
 }
 void DS3231_display() {
@@ -629,7 +629,7 @@ void DS3231_display() {
   lcd.print(Temp() - 1.75);
   lcd.print((char)223);
   lcd.setCursor(0, 3);
-  lcd.print(F("KeyStation r1.0 "));
+  lcd.print(F("KeyStation r1.1 "));
   if (ledStato == 0) {
     lcd.setCursor(16, 3);
     lcd.write(byte(0));
