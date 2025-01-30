@@ -16,14 +16,14 @@ byte stato = LOW;
 LiquidCrystal_I2C lcd(0x27, 20, 4);
 byte led1 = 2;  //relay1
 byte led2 = 3;  //relay2
-byte led3 = 6;  //relay3
-byte led4 = 5;  //relaygit log4
+byte led3 = 5;  //relay3
+byte led4 = 6;  //relaygit log4
 byte led5 = 4;
 byte led6 = 7;
 byte pulsantePin = 14;  //pulsante1
 byte pulsantePin2 = 15;
-byte pulsantePin3 = 17; // invertiti i tasti per la nuova basetta
-byte pulsantePin4 = 16;
+byte pulsantePin3 = 16; // invertiti i tasti per la nuova basetta
+byte pulsantePin4 = 17;
 byte ledStato = LOW;
 byte ledStato2 = LOW;
 byte ledStato3 = LOW;
@@ -284,7 +284,7 @@ void loop() {
         lcd.setCursor(0, 0);
         lcd.print(F("CASSE OFF"));
       } else if (ledStato2 == 1) {
-        inviaMagicPacket2();
+        // inviaMagicPacket2();
         lcd.clear();
         lcd.setCursor(0, 0);
         lcd.print(F("CASSE ON"));
