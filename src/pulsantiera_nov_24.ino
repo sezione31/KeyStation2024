@@ -322,11 +322,12 @@ void loop() {
         lcd.clear();
         lcd.setCursor(0, 0);
         lcd.print(F("MIXER OFF"));
-        delay(500) // Aggiunto 30 gennaio 2025 per provare a correggere errore reset a spegnimento mixer 
+        delay(500); // Aggiunto 30 gennaio 2025 per provare a correggere errore reset a spegnimento mixer 
       } else if (ledStato4 == 1) {
         lcd.clear();
         lcd.setCursor(0, 0);
         lcd.print(F("MIXER ON"));
+        delay(500);
       }
       delay(500);
     }
