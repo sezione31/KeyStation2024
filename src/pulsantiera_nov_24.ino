@@ -52,7 +52,7 @@ IPAddress dns(8,8,8,8);
 //const byte gateway[] = { 192, 168, 157, 171 };
 IPAddress subnet (255, 255, 255, 0);  //subnet mask CASA
 //const byte subnet[] = { 255, 255, 0, 0 };  //subnet mask
-const byte remote_MAC_ADD[] = { 0x9C, 0xA2, 0xF4, 0xB9, 0xA8, 0xAF }; //PC EXGIULIA OK!
+const byte remote_MAC_ADD[] = { 0xFC, 0x34, 0x97, 0x0F, 0xCC, 0xE7 }; //PC EXGIULIA OK!
 const byte remote_MAC_ADD2[] = { 0x74, 0xD4, 0x35, 0xD5, 0x5A, 0x41 };
 const byte broadCastIp[] = { 192, 168, 1, 255 };
 byte portaLocale = 7;
@@ -265,7 +265,7 @@ void loop() {
         lcd.setCursor(0, 0);
         lcd.print(F("PC OFF"));
       } else if (ledStato == 1) {
-        //inviaMagicPacket();
+        inviaMagicPacket(); // Ripristinato in data 11/02/2025
         lcd.clear();
         lcd.setCursor(0, 0);
         lcd.print(F("PC ON"));
@@ -631,7 +631,7 @@ void DS3231_display() {
   lcd.print(Temp() - 1.75);
   lcd.print((char)223);
   lcd.setCursor(0, 3);
-  lcd.print(F("KeyStation r1.1 "));
+  lcd.print(F("KeyStation r1.2 "));
   if (ledStato == 0) {
     lcd.setCursor(16, 3);
     lcd.write(byte(0));
