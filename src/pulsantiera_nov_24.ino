@@ -157,11 +157,11 @@ void loop() {
         lcd.setCursor(0, 0);
         lcd.print(F("TASTO MAGICO! PC ON"));
         lcd.setCursor(0, 1);
-        lcd.print(F("ACCENSIONE TOTALE"));
-        lcd.setCursor(0, 2);
-        lcd.print(F("ACCENDO HD, NAS"));
-        lcd.setCursor(0, 3);
-        lcd.print(F("MIXER E CASSE"));
+        lcd.print(F("ACCENSIONE PC"));
+        //lcd.setCursor(0, 2);
+        //lcd.print(F("ACCENDO HD, NAS"));
+        //lcd.setCursor(0, 3);
+        //lcd.print(F("MIXER E CASSE"));
         //digitalWrite(led1, stato);
         //ledStato = 1;
         inviaMagicPacket();
