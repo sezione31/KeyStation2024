@@ -155,26 +155,26 @@ void loop() {
         digitalWrite(led5, HIGH);
         lcd.clear();
         lcd.setCursor(0, 0);
-        lcd.print(F("TASTO MAGICO!"));
+        lcd.print(F("TASTO MAGICO! PC ON"));
         lcd.setCursor(0, 1);
         lcd.print(F("ACCENSIONE TOTALE"));
         lcd.setCursor(0, 2);
         lcd.print(F("ACCENDO HD, NAS"));
         lcd.setCursor(0, 3);
         lcd.print(F("MIXER E CASSE"));
-        digitalWrite(led1, stato);
-        ledStato = 1;
-        //inviaMagicPacket();
+        //digitalWrite(led1, stato);
+        //ledStato = 1;
+        inviaMagicPacket();
         delay(300);
-        digitalWrite(led2, stato);
-        ledStato2 = 1;
+        //digitalWrite(led2, stato);
+        //ledStato2 = 1;
         //inviaMagicPacket2();
-        delay(300);
-        digitalWrite(led3, stato);
-        ledStato3 = 1;
-        delay(300);
-        digitalWrite(led4, stato);
-        ledStato4 = 1;
+        //delay(300);
+        //digitalWrite(led3, stato);
+        //ledStato3 = 1;
+        //delay(300);
+        //digitalWrite(led4, stato);
+        //ledStato4 = 1;
       } else if (digitalRead(led5) == 1) {
         digitalWrite(led5, LOW);
         lcd.clear();
@@ -263,12 +263,12 @@ void loop() {
       if (ledStato == 0) {
         lcd.clear();
         lcd.setCursor(0, 0);
-        lcd.print(F("PC OFF"));
+        lcd.print(F("MARSHALL OFF"));
       } else if (ledStato == 1) {
-        inviaMagicPacket(); // Ripristinato in data 11/02/2025
+        //inviaMagicPacket(); // Ripristinato in data 11/02/2025
         lcd.clear();
         lcd.setCursor(0, 0);
-        lcd.print(F("PC ON"));
+        lcd.print(F("MARSHALL ON"));
       }
       delay(500);  // Invio magic packet, in questo caso al NAS
     }
@@ -388,7 +388,7 @@ void loop() {
       lcd.setCursor(0, 0);
       lcd.print(F("Acceso"));
       lcd.setCursor(0, 1);
-      lcd.print(F("PC da WEB"));
+      lcd.print(F("MARSHALL da WEB"));
       ledStato = 1;
       //inviaMagicPacket();
       delay(1000);
@@ -399,7 +399,7 @@ void loop() {
       lcd.setCursor(0, 0);
       lcd.print(F("Spento"));
       lcd.setCursor(0, 1);
-      lcd.print(F("PC da WEB"));
+      lcd.print(F("MARSHALL da WEB"));
       ledStato = 0;
       delay(500);
     }
@@ -740,8 +740,8 @@ void SendOKpage(EthernetClient &client) {
   client.println(F("<br />"));
   client.println("<H2>Pulsantiera Arduino con Ethernet Shield</H2>");
   client.println("<br />");
-  client.println(F("<a href=\"/?button1on\"\">PC ON</a>"));
-  client.println(F("<a href=\"/?button1off\"\">PC OFF</a><br />"));
+  client.println(F("<a href=\"/?button1on\"\">MARSHALL ON</a>"));
+  client.println(F("<a href=\"/?button1off\"\">MARSHALL OFF</a><br />"));
   client.println(F("<br />"));
   client.println(F("<br />"));
   client.println(F("<a href=\"/?button0on\"\">CASSE ON</a>"));
